@@ -19,6 +19,9 @@ namespace Jewelly.Models
             if (exc != null)
             {
                 exc.Quantity += quantity;
+                exc.Total =exc.Quantity*exc.Price;
+                db.SaveChanges();
+
             }
             else
             {
@@ -51,15 +54,7 @@ namespace Jewelly.Models
             };
         }
                
-           public void Update_Quantity_Shopping(int id, int quantity, int userId, int itemid)
-        {
-            var exc = db.ShoppingCarts.FirstOrDefault(c => c.User_id == userId && c.item_id == itemid);
-            if (exc != null)
-            {
-                exc.Quantity = quantity;
-                db.SaveChanges();
-            }
-        }
+         
 
         public List<ShoppingCart> select_cart()
         {

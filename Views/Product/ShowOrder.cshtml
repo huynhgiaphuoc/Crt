@@ -34,7 +34,7 @@
                                     <td><img class="img--cart" src="@item.ImgPath/@item.Img" /><span class="product--cart">@item.Product_name</span><a href="/Product/Delete/@item.ID" class="icon--remove"><i class="fas fa-times"></i> Delete</a></td>
                                     <td><p class="price--cart mt-5">@item.Price$</p></td>
                                     <td><p class="qly--cart mt-5">@item.Quantity</p></td>
-                                    <td><p class="price--cart mt-5">@item.Price$</p></td>
+                                    <td><p class="price--cart mt-5">@item.Total$</p></td>
                                 </tr>
                             }
                         </table>
@@ -46,7 +46,7 @@
                                 <p class="titletemp--order"><b>Provisional:</b></p>
                             </div>
                             <div class="col-md-6">
-                                <p class="money--order">@Model</p>
+                                <p class="money--order"></p>
                             </div>
                         </div>
                         <div class="row">
@@ -58,8 +58,9 @@
                             <div class="col-md-6">
                                 <p class="titletemp--order"><b>Total:</b></p>
                             </div>
+                            
                             <div class="col-md-6">
-                                <p class="money--order">@*@Model.Total_money()$*@</p>
+                                <p class="money--order">@Model.Money</p>
                             </div>
                         </div>
                         <div class="row">
