@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "Register";
+    <link rel="stylesheet" href="~/Content/Css/intlTelInput.css" />
+}
+
+<div class="sign_layout" id="displaysignin" data-aos="fade-right" data-aos-duration="1000">
+    <div class="title_sign">
+        <ul class="para_title">
+
+            <li><a id="signup" class="confirm_space">Login</a></li>
+            <li><a class="confirm_space1" style="color: black;">Register</a></li>
+        </ul>
+    </div>
+    <div class="form_poc">
+        <form action="/Account/Register" method="post" class="form_edits" onsubmit="return checkRegister();">
+            <div class="name_input">
+                <div>
+                    <p>FIRST NAME <red style="color: red">*</red></p>
+                    <input class="input_name form-control txt--input userFname" oninput="checkFName();" type="text" name="userFname" placeholder="First Name" />
+                </div>
+                <div>
+                    <p>LAST NAME <red style="color: red">*</red></p>
+                    <input class="input_name form-control txt--input userLname" oninput="checkLName();" type="text" name="userLname" placeholder="Last Name" />
+                </div>
+            </div>
+            <div class="space_input_login">
+                <p>EMAIL <red style="color: red">*</red></p>
+                <input class="input_edits form-control txt--input emailID" oninput="checkEmail();" placeholder="Email" type="email" name="emailID" />
+            </div>
+
+
+
+            <div class="space_input_login">
+                <p>PHONE <red style="color: red">*</red></p>
+
+
+                <input class="input_edits form-control txt--input mobNo" id="phone" oninput="checkPhone();" placeholder="Mobile" type="tel" name="mobNo" />
+            </div>
+            <div class="space_input_login">
+                <p>BIRTHDAY <red style="color: red">*</red></p>
+                <input class="input_edits form-control txt--input dob" oninput="checkDob();" type="date" name="dob" />
+            </div>
+            <div class="space_input_login">
+                <p>ADDRESS <red style="color: red">*</red></p>
+                <input class="input_edits form-control txt--input address" oninput="checkAdd();" placeholder="Address" type="text" name="address" />
+            </div>
+            <div class="space_input_login">
+                <p>CITY <red style="color: red">*</red></p>
+                <input class="input_edits form-control txt--input city" oninput="checkCity();" placeholder="City" type="text" name="city" />
+            </div>
+            <div class="space_input_login">
+                <p>USERNAME <red style="color: red">*</red></p>
+                <input class="input_edits form-control txt--input username" oninput="checkUser();" type="text" placeholder="Username" name="username" />
+            </div>
+            <div class="space_input_login">
+                <p>PASSWORD <red style="color: red">*</red></p>
+                <input class="input_edits form-control txt--input password" oninput="checkPass();" type="password" placeholder="At least 8 characters" name="password" />
+            </div>
+            <div>
+                <a class="forget_pass">Fogret Password ?</a>
+                <button type="submit" class="btn btn--dark--model" style="margin-left: 0;margin-top: 1em">Register</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+<script src="~/Content/Script/intlTelInput.js"></script>
+<script>
+    var input = document.querySelector("#phone");
+    window.intlTelInput(input, {
+        nationalMode: false,
+        utilsScript: "./build/js/utils.js",
+        allowDropdown: true,
+    });
+
+    // Set the initial dial code
+
+
+    // Make the input field not clickable (remove the down arrow icon)
+    const arrow = document.querySelector(".iti__flag-container > .arrow");
+    arrow.style.display = "none";
+
+    // Change the flag on click event
+    const countryCode = document.querySelector(".iti__selected-dial-code ");
+    const countryFlag = document.querySelector(".iti__flag-container > .iti__flag");
+    const phoneNumberInput = document.getElementById("phoneNumber");
+
+    countryFlag.addEventListener("click", function () {
+        const dialCode = countryCode.innerText;
+        iti.setCountry(dialCode.trim());
+
+        // Add a space after the country code in the input field
+        phoneNumberInput.value = phoneNumberInput.value.replace(/^\+\d*/, `+${dialCode} `);
+    });
+    AOS.init();
+    $("#signup").click(function () {
+        $("#displaysignin").load("Login", "Account");
+    });
+</script>
