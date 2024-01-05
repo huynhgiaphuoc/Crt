@@ -20,7 +20,7 @@ namespace Jewelly.Models
         public JwelleyEntities db = new JwelleyEntities();
         public List<Productss> SelectProduct(decimal? min, decimal? max, int? brandid, int? cateid, int? stoneid, int? jewelry, int? gold, string prices)
         {
-            if (prices != null)
+            if (prices == "prices")
             {
                 var product = (from i in db.ItemMsts
                                join p in db.ProdMsts on i.Prod_ID equals p.Prod_ID
@@ -35,10 +35,26 @@ namespace Jewelly.Models
                                    Path = m.path_img,
                                    Price = i.MRP
                                }).OrderBy(p => p.Price).ToList();
-
                 return product;
             }
-            if (prices == null)
+            if (prices == "default")
+            {
+                var product = (from i in db.ItemMsts
+                               join p in db.ProdMsts on i.Prod_ID equals p.Prod_ID
+                               join m in db.Imgs on i.Img_ID equals m.ID
+                               where i.Prod_ID == p.Prod_ID && i.Img_ID == m.ID && i.MRP > 0
+                               select new Productss()
+                               {
+                                   ID = i.Style_Code,
+                                   Name = p.Prod_Type,
+                                   Img = m.pic_1,
+                                   secondImg = m.pic_2,
+                                   Path = m.path_img,
+                                   Price = i.MRP
+                               }).OrderBy(p => p.Price).ToList();
+                return product;
+            }
+            if (prices =="pricem")
             {
                 var product = (from i in db.ItemMsts
                                join p in db.ProdMsts on i.Prod_ID equals p.Prod_ID
@@ -53,7 +69,6 @@ namespace Jewelly.Models
                                    Path = m.path_img,
                                    Price = i.MRP
                                }).OrderByDescending(p => p.Price).ToList();
-
                 return product;
             }
 

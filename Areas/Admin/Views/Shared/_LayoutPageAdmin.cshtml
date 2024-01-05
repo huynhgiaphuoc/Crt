@@ -32,119 +32,95 @@
                 </div>
             </div>
 
-            <div class="sidebar" id="siderbar">
-                <a href="@Url.Action("Dashboard", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        dashboard
-                    </span>
-                    <h3>Dashboard</h3>
-                </a>
-                <a href="@Url.Action("Users", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        person_outline
-                    </span>
-                    <h3>Users</h3>
-                </a>
-                <a href="@Url.Action("History", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        receipt_long
-                    </span>
-                    <h3>History</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        insights
-                    </span>
-                    <h3>Analytics</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        mail_outline
-                    </span>
-                    <h3>Tickets</h3>
-                    <span class="message-count">27</span>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        inventory
-                    </span>
-                    <h3>Sale List</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        report_gmailerrorred
-                    </span>
-                    <h3>Reports</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        settings
-                    </span>
-                    <h3>Settings</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        add
-                    </span>
-                    <h3>New Login</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        add
-                    </span>
-                    <h3>New Login</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        add
-                    </span>
-                    <h3>New Login</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        add
-                    </span>
-                    <h3>New Login</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        add
-                    </span>
-                    <h3>New Login</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        add
-                    </span>
-                    <h3>New Login</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        add
-                    </span>
-                    <h3>New Login</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        add
-                    </span>
-                    <h3>New Login</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        add
-                    </span>
-                    <h3>New Login</h3>
-                </a>
-                <a href="@Url.Action("Logout", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        logout
-                    </span>
-                    <h3>Logout</h3>
-                </a>
+            <div class="side_bar" id="sider_bar">
+
+                <div class="menu">
+                    <div class="item">
+                        <a href="#" class="sub-btn">
+                            <i class="fa-solid fa-shop"></i>
+                            Dashboard
+                        </a>
+                    </div>
+                    @* Hệ Items *@
+                    <div class="item">
+                        <a class="sub-btn" href="#">
+                            <i class="fa-solid fa-ring"></i>Item<i class="fas fa-angle-right dropdown"></i>
+                        </a>
+                        <div class="sub-menu">
+                            <a href="#" class="sub-item"><i class="fa-solid fa-ring"></i>Items</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-toolbox"></i>Product</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-copyright"></i>1Brand</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-images"></i>Image</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-ring"></i>Jewelry</a>
+
+                        </div>
+                    </div>
+                    @* Hệ Diamond *@
+                    <div class="item">
+                        <a class="sub-btn" href="#">
+                            <i class="fa-solid fa-gem"></i>Diamond<i class="fas fa-angle-right dropdown"></i>
+                        </a>
+                        <div class="sub-menu">
+                            <a href="#" class="sub-item"><i class="fa-solid fa-droplet"></i>Information</a>
+                            <a href="#" class="sub-item"><i class="fas fa-table"></i>Quanlity</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-rainbow"></i>Subtype</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-images"></i>Image</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-gem"></i>Diamond</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-certificate"></i>Certify</a>
+                        </div>
+                    </div>
+                    @* Hệ đá *@
+                    <div class="item">
+                        <a class="sub-btn" href="#">
+                            <i class="fa-solid fa-diamond"></i>Stone<i class="fas fa-angle-right dropdown"></i>
+                        </a>
+                        <div class="sub-menu">
+                            <a href="#" class="sub-item"><i class="fa-solid fa-droplet"></i>Stone Quanlity</i></a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-diamond"></i>Stone</a>
+                        </div>
+                    </div>
+                    @* Hệ Gold  *@
+                <div class="item">
+                    <a href="#" class="sub-btn"><i class="fa-solid fa-coins"></i>Gold</a>
+                    <div class="sub-menu">
+                        <a href="#" class="sub-item"><i class="fa-solid fa-heart-circle-minus"></i>Category</a>
+                    </div>
+
+                </div>
+                    @* hệ User *@
+                    <div class="item">
+                        <a class="sub-btn" href="#">
+                            <i class="fa-solid fa-users-gear"></i>User<i class="fas fa-angle-right dropdown"></i>
+                        </a>
+                        <div class="sub-menu">
+                            <a href="#" class="sub-item"><i class="fa-solid fa-user-group"></i>User</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-gavel"></i>Inquiry</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-cart-arrow-down"></i>User Cart</a>
+                            
+                        </div>
+                    </div>
+                    @* Hệ Order *@
+                    <div class="item">
+                        <a class="sub-btn" href="#">
+                            <i class="fa-solid fa-truck"></i>Order<i class="fas fa-angle-right dropdown"></i>
+                        </a>
+                        <div class="sub-menu">
+                            <a href="#" class="sub-item"><i class="fa-regular fa-credit-card"></i>Payment</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-truck"></i>Order</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-file-circle-check"></i>Orderdetails</a>
+                        </div>
+                    </div>
+                    @* Hệ news *@
+                    <div class="item">
+                        <a href="#" class="sub-btn"><i class="fas fa-table"></i>News</a>
+                    </div>
+                </div>
+                
+
 
             </div>
         </aside>
+        
         <!-- End of Sidebar Section -->
         <div>
             @RenderBody()
@@ -243,7 +219,38 @@
                 </div>
             </div>
         </div>
+        </div>
     <script src="~/Areas/Admin/Content/Script/Order.js"></script>
     <script src="~/Areas/Admin/Content/Script/Index.js"></script>
+    <script>
+        var item = document.getElementsByClassName('item');
+        var bg = document.getElementsByClassName('sub-btn');
+
+        
+        
+        $(document).ready(function () {
+            //var url = window.location.pathname
+            //urlRegExp = new RegExp(url.replace(/\/$/, ''));
+            //$(item).each(function () {
+            //    if (urlRegExp.test(this.href)) {
+            //        $(this).addClass('_active');
+            //    } else {
+            //        $(this).removeClass('_active');
+            //    }
+            //});
+            $(item).click(function () {
+                $(item).removeClass('_active');
+                $(this).addClass('_active');
+            });
+            $('.sub-btn').click(function () {
+                $(this).next('.sub-menu').slideToggle();
+                $(this).find('.dropdown').toggleClass('rotate');
+              
+            });
+           
+        });
+      
+
+    </script>
 </body>
 </html>

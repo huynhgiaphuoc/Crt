@@ -36,6 +36,7 @@
 }
 
 .dark-mode-variables {
+      
     --color-background: #181a1e;
     --color-white: #202528;
     --color-dark: #edeffd;
@@ -151,9 +152,8 @@ body{
     display: none;
 }
 
-.asider .sidebar{
-    display: flex;
-    flex-direction: column;
+/*.asider .side_bar{
+   
     background-color: var(--color-white);
     box-shadow: var(--box-shadow);
     border-radius: 15px;
@@ -161,13 +161,90 @@ body{
     position: relative;
     top: 1.5rem;
     transition: var(--transition-03);
+}*/
+.side_bar { 
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    background-color: #fff;
+    backdrop-filter: blur();
+    width: 230px;
+    height: 100vh;
+    position: relative;
+    left: -1.6em;
+    overflow-y: auto;
 }
 
-.asider .sidebar:hover{
+.side_bar .menu {
+    width: 100%;
+    margin-top: 3em;
+}
+.side_bar .menu .item {
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+    .side_bar .menu .item a {
+        color: #000;
+        background-color: #fff;
+        font-size: 18px;
+        text-decoration: none;
+        display: block;
+        padding: 5px 30px;
+        transition: var(--transition-03);
+        line-height: 60px;
+    }
+    /*.side_bar .menu .item::before {
+    content: '';*/
+    /* z-index: 3; */
+    /*height: 69px;
+    background-color: red;
+    position: absolute;
+    width: 5px;
+    display: none;
+
+    }
+   .side_bar .menu .item:focus::before,
+.side_bar .menu .item:active::before {
+    display: block;
+}*/
+    .side_bar .menu .item a:hover{
+        background-color: #eee;
+        transition: 0.3s ease;
+    }
+    .side_bar .menu .item i{
+        margin-right: 15px;
+    }
+    .side_bar .menu .item a .dropdown{
+        position: absolute;
+        right: 0;
+        margin: 20px;
+        transition: 0.3s ease;
+    }
+    .side_bar .menu .item .sub-menu{
+        background: rgba(255,255,255,0.1);
+        display: none;
+        
+    }
+    .side_bar .menu .item .sub-menu a{
+       padding-left: 40px;
+    }
+    .rotate{
+        transform :rotate(90deg);
+    }
+.close_btn{
+    position: absolute;
+    color: #fff;
+    font-size: 18px;
+    right: 0;
+    margin: 25px;
+    cursor: pointer;
+}
+/*.asider .sidebar:hover{
     box-shadow: none;
 }
-
-.asider .sidebar a{
+*/
+/*.asider .sidebar a{
     display: flex;
     align-items: center;
     color: var(--color-info-dark);
@@ -175,36 +252,52 @@ body{
     gap: 1rem;
     position: relative;
     margin-left: 2rem;
-    transition: var(--transition-03);
+   
 }
 
 .asider .sidebar a span{
     font-size: 1.6rem;
-    transition: var(--transition-05);
-}
+   
+}*/
 
-.asider .sidebar a:last-child{
+/*.asider .side_bar a:last-child{
     position: absolute;
     bottom: 5rem;
     width: 100%;
     left: .5em;
-}
+}*/
 
-.asider .sidebar a.active{
+.asider .side_bar a.active{
     width: 100%;
     color: var(--color-primary);
     background-color: var(--color-light);
     margin-left: 0;
 }
-
-.asider .sidebar a.active::before{
+nav 
+.asider .side_bar a.active::before{
     content: '';
     width: 6px;
     height: 18px;
     background-color: var(--color-primary);
 }
+.side_bar .menu .item._active .sub-btn{
+    background-color: rgb(0, 123, 255, 0.49) !important;
+}
 
-.asider .sidebar a.active span{
+._active::after {
+    content: ""; /*tại là phần tử con nên phải có thuộc tính content quần què này mới ra đm m*/
+    height: 69px;
+    background-color: red;
+    position: absolute;
+    width: 5px;
+    top: 0;
+    z-index: 100;
+}
+.item.active {
+    /* Add styles for the active state (clicked) */
+    background-color: red; /* Replace with your desired color */
+}
+/*.asider .sidebar a.active span{
     color: var(--color-primary);
     margin-left: calc(1rem - 3px);
 }
@@ -217,16 +310,17 @@ body{
 .asider .sidebar a:hover span{
     margin-left: .6rem;
 }
+.asider .sidebar h2{
 
+}
 .asider .sidebar .message-count{
     background-color: var(--color-danger);
     padding: 2px 6px;
     color: var(--color-white);
     font-size: 11px;
     border-radius: var(--border-radius-1);
-}
-
-.main{
+}*/
+    .main {
     margin-top: 1.4rem;
 }
 
@@ -643,4 +737,7 @@ body{
 #siderbar a.active:first-child{
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+}
+.siderbar ul{
+    z-index: 10000;
 }

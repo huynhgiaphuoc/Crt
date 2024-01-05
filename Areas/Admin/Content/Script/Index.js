@@ -1,6 +1,5 @@
 ﻿const sideMenu = document.querySelector('aside');
 const menu = document.getElementById('siderbar');
-const btns = menu.getElementsByClassName('btns');
 const menuBtn = document.getElementById('menu-btn');
 const closeBtn = document.getElementById('close-btn');
 const darkMode = document.querySelector('.dark-mode');

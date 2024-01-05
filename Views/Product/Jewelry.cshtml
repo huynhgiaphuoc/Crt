@@ -1,4 +1,4 @@
-﻿
+﻿@model dynamic
 @{
     ViewBag.Title = "Jewelry";
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
@@ -92,7 +92,7 @@
                             </div>
                         }
                     </div>
-                </div>
+                </div>s
                 <hr />
                 @*  Stone*@
                 <div>
@@ -137,22 +137,18 @@
             </a>
 
         </div>
-        <form action="/product/jewelry">
 
-            <div class="cate_tap">
-                Show 1-100 products for you <select class="form_select" name="prices">
-                    <option value="defaulf">
-                        defaulf
-                    </option>
-                    <option value="prices">
-                        Low to high
-                    </option>
-                    <option value="pricem">
-                        hight to low
-                    </option>
-                </select>
-            </div>
-        </form>
+      
+    <form id="filterForm" action="/Product/Jewelry" method="get">
+        <div class="cate_tap">
+            Show 1-100 products for you
+            <select class="form_select prices" id="prices" name="prices">
+                <option value="default">default</option>
+                <option value="prices">prices</option>
+                <option value="pricem">pricem</option>
+            </select>
+        </div>
+    </form>
 
     </div>
 
@@ -185,6 +181,7 @@
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>AOS.init();
     function load(img) {
         const url = img.getAttribute('lazy_src')
@@ -320,10 +317,12 @@
             });
 }
 
-    var test = document.getElementsByClassName("prices").
-        test.addEventListener('change', function () {
-        var selectedValue = this.value;
-        // Sử dụng giá trị ở đây để thực hiện các hành động mong muốn
-        console.log(selectedValue);
-    })</script>
+ 
+    $(document).ready(function () {
+        $('#prices').change(function () {
+            $('#filterForm').submit();
+        });
+    });
+
+    </script>
 

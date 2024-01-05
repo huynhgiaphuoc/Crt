@@ -45,6 +45,7 @@ namespace Jewelly.Controllers
 
         public ActionResult Jewelry(decimal? MinPrice, decimal? MaxPrice, int? Brandtype, int? jewelry, int? Gold, int? Categorytype, int? stoneq, string prices)
         {
+
             var model = new Join().SelectProduct(MinPrice, MaxPrice, Brandtype, Gold, jewelry, Categorytype, stoneq, prices).ToList();
             List<BrandMst> brand = db.BrandMsts.ToList();
             List<JewelTypeMst> jewe = db.JewelTypeMsts.ToList();
@@ -208,30 +209,32 @@ namespace Jewelly.Controllers
         }
         [HttpPost]
         public ActionResult CheckedOut(FormCollection form)
-        { 
+        {
+            //ShoppingCart cart = new ShoppingCart();
             int id = (int)Session["userID"];
             var cart = db.ShoppingCarts.Where(s => s.User_id == id).ToList();
-            if(cart != null)
+            if (cart != null)
             {
                 CartList cartList = new CartList();
-                cartList.ShipCode = form["payment"];
+                cartList.ShipCode = "123";
                 if (cartList.ShipCode == "Visa")
                 {
                     Payment payments = new Payment();
+                    payments.ID = 1;
                     payments.numbercard = form["numbercard"];
+                    payments.Cus_name = "huynh gia phuc";
                     payments.cgv = int.Parse(form["cgv"]);
                     payments.expiration_date = DateTime.Parse(form["dateend"]);
                     payments.type = "Visa";
                     db.Payments.Add(payments);
+                    cartList.payment_ID = 1;
                 }
                 else
                 {
                     cartList.payment_ID = null;
                 }
-                cartList.payment_ID = 1;
-                cartList.userID = null;
+                cartList.userID = (int)Session["userID"];
                 cartList.userName = "an1203";
-                cartList.ShipCode = "Visa";
                 cartList.OrderDate = DateTime.Now.ToString();
                 cartList.MRP = decimal.Parse(form["mrp"]);
                 cartList.ShipName = form["name"];
@@ -239,10 +242,12 @@ namespace Jewelly.Controllers
                 cartList.Phone = form["phone"];
                 cartList.ShipAddress = form["address"];
                 cartList.ShipCity = form["city"];
+                cartList.OrderCode = "oc1";
                 cartList.ShipCountry = form["country"];
                 cartList.Status = "Pending";
                 cartList.Note = form["note"];
-                cartList.Product_Name = form["product"];
+                cartList.Product_Name = "Diamond";
+               
 
                 db.CartLists.Add(cartList);
                 foreach (var item in cart)
@@ -253,7 +258,12 @@ namespace Jewelly.Controllers
                     details.Quantity = (int?)item.Quantity;
                     details.UnitPrice = item.Price;
                     db.Orderdetails.Add(details);
+                } 
+               foreach(var item in cart)
+                {             
+                    db.ShoppingCarts.Remove(item);
                 }
+               
                 db.SaveChanges();
                 return RedirectToAction("ShoppingSuccess", "Product");
             }
@@ -265,7 +275,14 @@ namespace Jewelly.Controllers
         {
             return View();
         }
+        public ActionResult ShoppingSuccess()
+        {
+            return View();
+
+        }
+
+        }
     }
-}
+
 
        
